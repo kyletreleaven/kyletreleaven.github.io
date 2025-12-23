@@ -40,6 +40,55 @@
                 font-size: 2em;
             }
         }
+
+        /* Image zoom modal styles */
+        .screenshot-img {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .screenshot-img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal img {
+            max-width: 70%;
+            max-height: 70%;
+            object-fit: contain;
+        }
+
+        /* FAQ styles */
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-question {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: #555;
+            line-height: 1.8;
+        }
     </style>
     <meta name="google-site-verification" content="QTswCQjJHHnKKwZ6zDKcbCiv14YPKTr-lFRo9p0qcoI" />
 </head>
@@ -48,6 +97,14 @@
         <div class="container">
             <h1>Shuffle Hero</h1>
             <p>Perfect your shuffle, become the hero</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a
+                    href="https://play.google.com/store/apps/details?id=com.setiptah.ShuffleHero"
+                    class="download-button-small external-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Get it on Google Play</a>
+            </div>
         </div>
     </header>
 
@@ -57,13 +114,9 @@
             <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 1.1em; color: #555; line-height: 1.8;">
                 Shuffle Hero perfects the humble pile shuffle with mathematics and the magic of rhythm games. Watch as cards cascade down your screen like notes in Guitar Hero. Each lane represents a pile on your table. As each card reaches the bottom, you move your real-world card to that pile—just in time, just in rhythm. Perfect for Magic: The Gathering, Pokémon TCG, Dominion, or any deck-based game.
             </p>
-            <div style="text-align: center; margin-bottom: 40px;">
-                <a
-                    href="https://play.google.com/store/apps/details?id=com.setiptah.ShuffleHero"
-                    class="download-button-small external-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >Get it on Google Play</a>
+            <div class="screenshots-grid">
+                <img src="images/screenshots/Screenshot_20251213-114809.png" alt="Shuffle Hero gameplay - Round 1/2" class="screenshot-img">
+                <img src="images/screenshots/Screenshot_20251213-114822.png" alt="Shuffle Hero settings menu" class="screenshot-img">
             </div>
             <h2 class="section-title" style="margin-top: 60px;">Features</h2>
             <div class="features-grid">
@@ -99,13 +152,15 @@
         </div>
     </section>
 
-    <section class="screenshots">
+    <section class="why-section" style="background-color: #f9f9f9; padding: 60px 0;">
         <div class="container">
-            <h2 class="section-title">Screenshots</h2>
-            <div class="screenshots-grid">
-                <img src="images/screenshots/Screenshot_20251213-114809.png" alt="Shuffle Hero gameplay - Round 1/2" class="screenshot-img">
-                <img src="images/screenshots/Screenshot_20251213-114822.png" alt="Shuffle Hero settings menu" class="screenshot-img">
-            </div>
+            <h2 class="section-title">Why Shuffle Hero?</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 1.1em; color: #555; line-height: 1.8;">
+                Nearly all card games rely on randomized shuffle, but shuffling physical cards properly can be surprisingly difficult. Riffle and mash shuffling are the accepted tournament standard because they can produce unbiased randomness, but in practice they require many repetitions—and physical dexterity—while putting stress on cards and sleeves. Meanwhile pile shuffling, which offers a gentler, more accessible alternative, is traditionally dismissed because "random" human choices introduce bias, or even opportunities to cheat.
+            </p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1em; color: #555; line-height: 1.8;">
+                Shuffle Hero removes the human bias from pile shuffling, by guiding players through a mathematically determined, UI-driven procedure. So Shuffle Hero preserves the accessibility of pile shuffling while achieving even better statistical guarantees than standard methods. The result is a fair, repeatable shuffle that delivers proper randomization without relying on physical skill, or damaging your collection.
+            </p>
         </div>
     </section>
 
@@ -123,6 +178,36 @@
                     <h3><a href="https://arxiv.org/abs/2506.05518" class="external-link" target="_blank" rel="noopener noreferrer">Sorting by pile shuffles on queue-like and stack-like piles can be hard</a></h3>
                     <p class="paper-authors">Kyle B. Treleaven</p>
                     <p class="paper-description">...We study two sort feasibility problems ... concerning pile shuffle ... We prove by a sequence of reductions from the Boolean satisfiability problem (SAT) that the more general problem is NP-Hard...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" style="background-color: #f9f9f9; padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <h3 class="faq-question">Is Shuffle Hero free?</h3>
+                    <p class="faq-answer">Yes, Shuffle Hero is completely free with no ads or in-app purchases.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">What platforms is it available on?</h3>
+                    <p class="faq-answer">Shuffle Hero is currently available on Android via Google Play.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Do I need an internet connection?</h3>
+                    <p class="faq-answer">No, Shuffle Hero works completely offline once installed.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">What card games can I use this with?</h3>
+                    <p class="faq-answer">Any card game that requires shuffling: Magic: The Gathering, Pokémon TCG, Yu-Gi-Oh!, Dominion, board game decks, and more. Just set your deck size and start shuffling.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Does Shuffle Hero prevent card tracking or counting?</h3>
+                    <p class="faq-answer">
+                        Shuffle Hero makes tracking card positions pretty difficult, but it doesn’t eliminate it entirely. For extra protection, you can combine it with cuts or other shuffles to reduce the chance of tracking, just like in standard tournament play.
+                    </p>
                 </div>
             </div>
         </div>
@@ -147,5 +232,29 @@
             <p>&copy; 2025 Shuffle Hero. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Image zoom modal -->
+    <div class="image-modal" id="imageModal">
+        <img src="" alt="Zoomed screenshot">
+    </div>
+
+    <script>
+        // Image zoom functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = modal.querySelector('img');
+        const screenshots = document.querySelectorAll('.screenshot-img');
+
+        screenshots.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+
+        modal.addEventListener('click', function() {
+            modal.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
